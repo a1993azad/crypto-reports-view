@@ -1,4 +1,6 @@
 # Crypto Reports View
+## Requirements
+- Node.js +18
 ## Setup 
 - Install all dependencies by running `npm install` command. 
 - Get your API Key from https://www.cryptocompare.com/cryptopian/api-keys
