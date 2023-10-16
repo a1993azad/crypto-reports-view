@@ -1,9 +1,12 @@
 import "./assets/scss/main.scss";
+import CryptoProvider from "./providers/CryptoProvider";
 import Home from "./views/Home";
 function App() {
   return (
     <>
-      <Home />
+      <CryptoProvider>
+        <Home />
+      </CryptoProvider>
     </>
   );
 }
