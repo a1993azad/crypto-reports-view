@@ -13,6 +13,10 @@
 ## Deployment
 Run `npm start` and go to `http://localhost:3000` in your browser to see it;
 
+### Configs
+You can change API Cache expiration time by following:
+  1- Open  `src/config/api.js`
+  2- Change `cryptoCacheConfigs` property in seconds. (i.e. 60 ==> 1 minutes)
 
 ## Build
 - Run `npm run build`
