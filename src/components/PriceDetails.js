@@ -25,7 +25,7 @@ function PriceDetails() {
             <Col xs={12} md={4}>
               <div className="d-table mx-auto">
                 <Legend
-                  value={indexes.higher}
+                  checked={indexes.higher}
                   onChange={onChangeCheckbox}
                   label={labels.higher}
                   color={"green"}
@@ -33,7 +33,7 @@ function PriceDetails() {
                   name="higher"
                 />
                 <Legend
-                  value={indexes.average}
+                  checked={indexes.average}
                   onChange={onChangeCheckbox}
                   label={labels.average}
                   color={"yellow"}
@@ -41,7 +41,7 @@ function PriceDetails() {
                   name="average"
                 />
                 <Legend
-                  value={indexes.lower}
+                  checked={indexes.lower}
                   onChange={onChangeCheckbox}
                   label={labels.lower}
                   color={"red"}
