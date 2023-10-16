@@ -25,7 +25,7 @@ function getRanges(Data) {
     value: 0,
     index: 0,
   };
-  Data.map((data, index) => {
+  Data.forEach((data, index) => {
     const { high = 0, low = 0 } = data;
     if (max.value < high) {
       max.value = high;

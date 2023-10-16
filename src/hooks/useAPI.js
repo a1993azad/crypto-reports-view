@@ -30,7 +30,7 @@ function useAPI() {
     return () => {
       cancelFetch();
     };
-  }, [1]);
+  }, []);
   return [loading, fetchAPI, setFetchParams, cancelFetch];
 }
 
