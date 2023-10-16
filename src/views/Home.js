@@ -8,17 +8,19 @@ import { cryptocurrencySymbols, currencySymbols } from "../constants/symbols";
 function Home() {
   return (
     <Container>
-      <Row>
-        <Col xs={12} md={8} lg={10}>
+      <Row className="py-2">
+        <Col xs={12} sm={12} md={9} lg={8} className="my-2">
           <HourlyPrice
             cryptocurrencySymbol={cryptocurrencySymbols.BTC}
             currencySymbol={currencySymbols.USD}
           />
         </Col>
-        <Col xs={12} md={4} lg={2}>
-          <HourlyMarketVolume cryptocurrencySymbol={cryptocurrencySymbols.BTC} />
+        <Col xs={12} sm={12} md={3} lg={4} className="my-2">
+          <HourlyMarketVolume
+            cryptocurrencySymbol={cryptocurrencySymbols.BTC}
+          />
         </Col>
-        <Col xs={12}>
+        <Col xs={12} className="my-2">
           <PriceDetails />
         </Col>
       </Row>

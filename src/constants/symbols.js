@@ -1,6 +1,6 @@
-export const cryptocurrencySymbols={
-    BTC:"BTC"
-}
-export const currencySymbols={
-    USD:"USD"
-}
+export const cryptocurrencySymbols = {
+  BTC: "BTC",
+};
+export const currencySymbols = {
+  USD: "USD",
+};
