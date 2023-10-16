@@ -15,7 +15,7 @@ import formatTime from "../utils/formatTime";
 import colors from "../constants/colors";
 import Loading from "./Loading";
 import useCrypto from "../hooks/useCrypto";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from "react-responsive";
 
 function getRanges(Data) {
   const max = {
@@ -45,7 +45,7 @@ function getRanges(Data) {
     },
     min: {
       from: formatTime(Data[min.index].time),
-      to: formatTime(Data[min.index]?.time ?? now),
+      to: formatTime(Data[min.index + 1]?.time ?? now),
     },
   };
 }
@@ -66,9 +66,9 @@ function HourlyPrice({ cryptocurrencySymbol, currencySymbol }) {
   const { indexes, setRanges } = useCrypto();
   const [hourlyPriceData, setHourlyPriceData] = React.useState(null);
   const [loading, fetchAPI, setFetchParams] = useAPI();
-  const isSmallDevice=useMediaQuery({
-    query:'(max-width:900px)'
-  })
+  const isSmallDevice = useMediaQuery({
+    query: "(max-width:900px)",
+  });
   const getHourlyPriceData = async () => {
     try {
       setFetchParams(
@@ -97,14 +97,19 @@ function HourlyPrice({ cryptocurrencySymbol, currencySymbol }) {
             <BarChart data={hourlyPriceData}>
               <CartesianGrid strokeDasharray="7 5" vertical={false} />
               <XAxis dataKey="time" axisLine={false} />
-              <YAxis tickCount={4} axisLine={false} fontSize={isSmallDevice?8:12}  width={isSmallDevice?30:undefined} />
+              <YAxis
+                tickCount={4}
+                axisLine={false}
+                fontSize={isSmallDevice ? 8 : 12}
+                width={isSmallDevice ? 30 : undefined}
+              />
               <Tooltip />
               {indexes.higher && (
                 <Bar
                   dataKey="higher"
                   fill={colors.green}
                   radius={[3, 3, 3, 3]}
-                  barSize={isSmallDevice?5:10}
+                  barSize={isSmallDevice ? 5 : 10}
                 />
               )}
               {indexes.average && (
@@ -112,7 +117,7 @@ function HourlyPrice({ cryptocurrencySymbol, currencySymbol }) {
                   dataKey="average"
                   fill={colors.yellow}
                   radius={[3, 3, 3, 3]}
-                  barSize={isSmallDevice?5:10}
+                  barSize={isSmallDevice ? 5 : 10}
                 />
               )}
               {indexes.lower && (
@@ -120,7 +125,7 @@ function HourlyPrice({ cryptocurrencySymbol, currencySymbol }) {
                   dataKey="lower"
                   fill={colors.red}
                   radius={[3, 3, 3, 3]}
-                  barSize={isSmallDevice?5:10}
+                  barSize={isSmallDevice ? 5 : 10}
                 />
               )}
             </BarChart>
