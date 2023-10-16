@@ -3,13 +3,25 @@ import md5 from "md5";
 
 //cache API response
 export default class FetchWithCache {
-  constructor({ url, method='GET', data, headers, cacheTime = null }) {
-    this.url = url;
-    this.method = String(method).toUpperCase();
-    this.data = data ?? {};
-    this.headers = headers ?? {};
-    this.cacheTime = cacheTime;
-    this.loading = false;
+  loading = false;
+  url = "";
+  method = "GET";
+  data = {};
+  headers = {};
+  cacheTime = null;
+  constructor({ url, method = "GET", data, headers, cacheTime = null }) {
+    this.set({ url, method, data, headers, cacheTime });
+  }
+  set({ url, method, data, headers, cacheTime = null }) {
+    this.url = url ?? this.url;
+    this.method = method ? String(method).toUpperCase() : this.method;
+    this.data = data ?? this.data;
+    this.headers = headers ?? this.headers;
+    this.cacheTime = cacheTime ?? this.cacheTime;
+    if (this.loading) {
+      this.loading = false;
+      this.cancelFetch();
+    }
   }
   getCacheKey() {
     return md5(
@@ -39,7 +51,10 @@ export default class FetchWithCache {
     const res = await fetch(this.url, {
       method: this.method,
       headers: this.headers,
-      body: this.method==='GET' || this.method==='HEAD'?undefined:JSON.stringify(this.data),
+      body:
+        this.method === "GET" || this.method === "HEAD"
+          ? undefined
+          : JSON.stringify(this.data),
       signal: this.abortController.signal,
     });
     const data = await res.json();
