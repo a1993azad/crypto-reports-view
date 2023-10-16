@@ -11,7 +11,10 @@
 **Note:** I know this solution is not the best but I don't want to store my API key in the .env but we can save it in the backend or use Next.js.
 
 ## Deployment
-Run `npm start` go to `localhost:3000` in your browser to see it;
+Run `npm start` and go to `http://localhost:3000` in your browser to see it;
 
 
 ## Build
+- Run `npm run build`
+- install `serve` package if didn't exist in your system.(`npm i -g serve`)
+- Run `serve -s build` and go to `http://localhost:3000` in your browser to see ito
