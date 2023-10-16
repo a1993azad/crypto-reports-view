@@ -1,0 +1,31 @@
+@import './breakpoints';
+@import '~bootstrap/scss/mixins';
+
+.hourlyMarketVolumeWrapper{
+    height:300px;
+    .chartTitle{
+        height: 50px;
+        margin-bottom: 10px;
+        >span{
+            max-width: 200px;
+        }
+    }
+    .sliderHandlerWrapper{
+        height:40px;
+        @include media-breakpoint-down(lg) {
+            flex-wrap: wrap;
+          }
+        @include media-breakpoint-between(sm,lg) {
+            .btn{
+                width:15px !important;
+                height:15px !important;
+            }
+          }
+        @include media-breakpoint-between(lg,xl) {
+            .btn{
+                width:20px !important;
+                height:20px !important;
+            }
+          }
+    }
+}
